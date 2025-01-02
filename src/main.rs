@@ -1,4 +1,6 @@
-use std::{any::TypeId, io};
+use std:: io;
+use std::cmp::Ordering;
+
 use rand::Rng;
 
 fn main() {
@@ -16,13 +18,19 @@ fn main() {
          .read_line(&mut  geuss)
          .expect("failed to read line");
 
+        let geuss: u32 = geuss.trim().parse().expect("please type a num");
+
     println!("you guessed : {}",geuss);
 
-    // if geuss = secnum {
-    //     println!("you gotta right geuss");
-    // } 
+    
 
-    if TypeId::of()::geuss 
+    
+   match geuss.cmp(&secnum){
+
+    Ordering::Equal=> println!("you got the correct"),
+    Ordering::Less =>println!("less please up"),
+    Ordering::Greater=>println!("high please down")
+   }
 
             
 
